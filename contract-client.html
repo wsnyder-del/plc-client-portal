@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Services Agreement — Pioneer Legal Consulting</title>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --brand:#1a2d4e; --brand-deep:#0f1e36; --brand-light:#3a5a8a; --brand-soft:#e8edf5;
+  --accent:#b8922a; --accent-soft:#f5ead6;
+  --ink:#1a2d4e; --muted:#5a6a7e; --cream:#f3f5f9; --text:#1a2d4e;
+  --border:#d8e0ec; --shadow:0 2px 12px rgba(26,45,78,0.10);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Hanken Grotesk',sans-serif;background:var(--cream);color:var(--text);min-height:100vh;}
+header{background:#1a2d4e;color:white;padding:22px 32px;margin-bottom:0;border-bottom:3px solid #b8922a;}
+.firm-name{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:700;letter-spacing:-0.01em;}
+.page-title{font-size:13px;opacity:0.75;margin-top:4px;}
+.contact-bar{font-size:11px;opacity:0.55;margin-top:6px;}
+.page-wrap{max-width:720px;margin:0 auto;padding:32px 20px 80px;}
+.card{background:white;border-radius:10px;box-shadow:var(--shadow);border:1px solid var(--border);padding:32px;margin-bottom:24px;}
+.card-title{font-family:'Bricolage Grotesque',sans-serif;font-size:18px;color:var(--brand-deep);margin-bottom:6px;}
+.card-sub{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.5;}
+.section-heading{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--brand);border-bottom:1px solid var(--border);padding-bottom:8px;margin:24px 0 14px;}
+.section-heading:first-child{margin-top:0;}
+.field-group{margin-bottom:14px;}
+.field-label{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:5px;display:block;}
+.required-star{color:#c0392b;margin-left:2px;}
+input[type=text],input[type=email],input[type=tel],textarea{
+  width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:6px;font-size:14px;
+  font-family:inherit;color:var(--ink);background:white;outline:none;transition:border 0.2s;
+}
+input:focus,textarea:focus{border-color:var(--brand);}
+input.error,textarea.error{border-color:#c0392b;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.row3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;}
+@media(max-width:520px){.row2,.row3{grid-template-columns:1fr;}}
+.contract-body{font-size:13px;color:#3d3d3d;line-height:1.75;margin-bottom:12px;}
+.contract-body strong{color:var(--brand-deep);}
+.contract-bullet{margin-left:18px;margin-bottom:6px;font-size:13px;color:#3d3d3d;line-height:1.7;}
+.contract-bullet::before{content:'• ';color:var(--accent);}
+.notice-box{background:#fff8e8;border:1px solid #e8d08a;border-radius:6px;padding:12px 16px;font-size:12.5px;color:#5a4500;margin:14px 0;}
+.notice-box.blue{background:var(--brand-soft);border-color:var(--border);color:var(--brand-deep);}
+.initials-row{display:flex;align-items:center;gap:20px;background:#f8f6f2;border-left:3px solid var(--accent);padding:14px 16px;border-radius:0 6px 6px 0;margin:16px 0;}
+.initials-row .init-text{flex:1;font-size:12.5px;color:var(--ink);}
+.initials-row .init-text strong{display:block;margin-bottom:4px;font-size:13px;}
+.initials-field{min-width:110px;text-align:center;}
+.initials-field input{font-family:cursive;font-size:22px;text-align:center;border-bottom:2px solid var(--brand);border-top:none;border-left:none;border-right:none;border-radius:0;padding:4px 8px;color:var(--brand);width:110px;}
+.sig-pad-wrap{background:#f8f6f2;border-radius:8px;padding:14px;margin-bottom:12px;}
+.sig-pad-label{font-size:11px;font-weight:600;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase;margin-bottom:8px;}
+canvas{border:1px solid var(--border);border-radius:6px;width:100%;height:120px;background:white;touch-action:none;cursor:crosshair;display:block;}
+.sig-actions{display:flex;gap:8px;margin-top:6px;}
+.sig-clear{font-size:12px;color:var(--muted);background:none;border:1px solid var(--border);border-radius:5px;padding:5px 12px;cursor:pointer;}
+.sig-clear:hover{background:var(--border);}
+.date-field{font-size:12px;color:var(--muted);margin-top:4px;}
+.ss4-note{font-size:11px;color:var(--muted);margin-top:3px;}
+.btn-submit{width:100%;padding:16px;background:var(--brand);color:white;border:none;border-radius:8px;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;letter-spacing:0.01em;transition:background 0.2s;}
+.btn-submit:hover:not(:disabled){background:var(--brand-light);}
+.btn-submit:disabled{opacity:0.5;cursor:not-allowed;}
+.error-msg{color:#c0392b;font-size:13px;margin-top:10px;display:none;}
+.success-card{display:none;background:white;border-radius:10px;box-shadow:var(--shadow);border:1px solid var(--border);padding:48px 32px;text-align:center;margin-bottom:24px;}
+.success-icon{font-size:48px;margin-bottom:16px;}
+.success-title{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;color:var(--brand-deep);margin-bottom:8px;}
+.success-sub{font-size:14px;color:var(--muted);line-height:1.6;}
+.spinner{display:none;width:24px;height:24px;border:3px solid rgba(255,255,255,0.4);border-top-color:white;border-radius:50%;animation:spin 0.7s linear infinite;margin:0 auto;}
+@keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="firm-name">Pioneer Legal Consulting, LLC</div>
+  <div class="page-title">Client Services Agreement</div>
+  <div class="contact-bar">445 133rd Ave, Wayland, MI 49348 · 313-604-8601 · wsnyder@plc-us.com</div>
+</header>
+
+<div class="page-wrap" id="formWrap">
+
+  <!-- ===============================================================
+       PAGE 1 — Client Information (prefilled by rep, read-only)
+       =============================================================== -->
+  <div class="card">
+    <div class="card-title">Your Information</div>
+    <div class="card-sub">Please review your information below. Contact your Pioneer Legal Consulting representative if anything needs to be corrected.</div>
+
+    <div class="section-heading">Client</div>
+    <div class="field-group">
+      <label class="field-label">Client Name(s)<span class="required-star">*</span></label>
+      <input type="text" id="client_names" name="client_names" placeholder="Full legal name(s)" required>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Home Address<span class="required-star">*</span></label>
+      <input type="text" id="home_address" name="home_address" placeholder="Street address" required>
+    </div>
+    <div class="row3">
+      <div class="field-group">
+        <label class="field-label">City<span class="required-star">*</span></label>
+        <input type="text" id="city" name="city" required>
+      </div>
+      <div class="field-group">
+        <label class="field-label">State<span class="required-star">*</span></label>
+        <input type="text" id="state" name="state" placeholder="CA" required>
+      </div>
+      <div class="field-group">
+        <label class="field-label">ZIP<span class="required-star">*</span></label>
+        <input type="text" id="zip" name="zip" required>
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field-group">
+        <label class="field-label">Client Phone</label>
+        <input type="tel" id="client_phone" name="client_phone" placeholder="(555) 000-0000">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Client Email</label>
+        <input type="email" id="client_email" name="client_email" placeholder="email@example.com">
+      </div>
+    </div>
+    <div class="row2">
+      <div class="field-group">
+        <label class="field-label">Service Fee<span class="required-star">*</span></label>
+        <input type="text" id="service_fee" name="service_fee" placeholder="$4,500" required>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Representative</label>
+        <input type="text" id="rep_name" name="rep_name" placeholder="Rep name">
+      </div>
+    </div>
+    <input type="hidden" id="pin" name="pin">
+    <input type="hidden" id="lang" name="lang" value="en">
+    <input type="hidden" id="form_type" name="form_type" value="PLC_CONTRACT">
+  </div>
+
+  <!-- ===============================================================
+       PAGE 2 — Agreement Text
+       =============================================================== -->
+  <div class="card">
+    <div class="card-title">Client Services Agreement</div>
+    <div class="card-sub">Please read the entire agreement before signing.</div>
+
+    <div class="section-heading">Contract Recitals</div>
+    <div class="contract-body"><strong>AGREEMENT:</strong> Pioneer Legal Consulting will assist you with a favorable outcome through termination of your sales/financing agreement with your Solar Contract. The recommended Firm will fight to recover any and all monies previously paid to the solar sales organization or finance company.</div>
+    <div class="contract-body"><strong>MONIES RECOVERED FROM FINANCE COMPANY:</strong> Pioneer Legal Consulting will work vigorously with counsel who takes your case to pursue the recovery of monies spent on your Solar Purchase. There is no guarantee of recovering any money you have already spent. Pioneer Legal Consulting's engagement is structured as a flat fee for case management and advocacy services through the pre-litigation phase. Any terms related to recovery, contingency, or other matters associated with your situation will be defined as we research and move forward.</div>
+
+    <div class="section-heading">Agreement for Services</div>
+    <div class="contract-body">This Service Agreement ("Agreement") is entered into and is effective as of the date of signing below between Pioneer Legal Consulting and the signing solar homeowner(s).</div>
+    <div class="contract-body"><strong>1. SCOPE OF SERVICE COMMITMENT:</strong> In exchange for the Service Fee paid under the terms and conditions of this Agreement, Pioneer Legal Consulting commits to use its best efforts to facilitate a favorable resolution to the Client's existing solar purchase agreement. A favorable resolution would be one or more of the following:</div>
+    <div class="contract-bullet">Thoroughly reviewing your solar purchase agreement and financing documentation and having our chosen firm write demand letters to either eliminate or significantly reduce your payment obligations under your existing solar purchase agreement;</div>
+    <div class="contract-bullet">Having our chosen firm write letters and/or initiate filings to remove any UCC lien filings arising out of the solar purchase agreement from your property;</div>
+    <div class="contract-bullet">Negotiating on your behalf to allow you to keep the solar equipment that has been installed.</div>
+    <div class="contract-body"><strong>2. ARBITRATION AND/OR LITIGATION:</strong> Arbitration and/or litigation against the solar company and/or the finance company may become an option and/or necessary depending upon the specific facts of your case. Pioneer Legal Consulting, LLC will advocate on your behalf up to selecting outside counsel to represent Client in formal arbitration or litigation proceedings. If arbitration and/or litigation becomes an option or is necessary, Pioneer Legal Consulting, LLC will take the necessary steps to continue to advocate on your behalf, up to engaging outside counsel on your behalf on a separate contingency fee employment contract. In the event outside counsel is engaged, any contingency fee owed to counsel will likely be covered in a statutory manner pursuant to applicable consumer protection laws, which often provide for the recovery of attorney's fees from the opposing party as part of a successful claim. This means that attorney's fees already paid in are often added into the total recovery sought from the solar company and/or finance company, and are not deducted from the monies recovered on your behalf. As a result, Client can expect that in many cases legal fees incurred through outside counsel will be built into the recovery rather than subtracted from Client's proceeds. Any costs or fees associated with formal arbitration or litigation proceedings beyond PLC's scope of service will be disclosed to Client in writing before being incurred.</div>
+    <div class="contract-body"><strong>3. SERVICE FEE:</strong> In consideration of the services rendered by Pioneer Legal Consulting, the Client agrees to pay Pioneer Legal Consulting the agreed-upon flat fee as reflected in the Service Fee field above.</div>
+    <div class="contract-body"><strong>4. THIRD PARTY ASSOCIATES:</strong> Pioneer Legal Consulting has secured the services of third-party experts to provide the additional education and resources necessary to fully navigate the Client through various issues ancillary to the services performed under this Agreement.</div>
+    <div class="contract-body"><strong>5. LEGAL DISCLAIMER:</strong> Pioneer Legal Consulting is not engaged in the practice of law. The client acknowledges that Pioneer Legal Consulting will operate as case manager and paralegal to the attorney Pioneer Legal Consulting selects to represent them. Neither Pioneer Legal Consulting nor the firm being referred to represents a guarantee that the Client will receive a recoupment of funds from the solar sales company or finance company.</div>
+    <div class="contract-body"><strong>6. TERM OF CONTRACT:</strong> Pioneer Legal Consulting, LLC is committed to advocating on Client's behalf through all available pre-litigation and pre-arbitration channels, including formal demand, regulatory complaints, and negotiation with Respondents. In the event a matter progresses to formal arbitration or litigation, Pioneer Legal Consulting, LLC will work to identify and engage appropriate outside legal counsel on Client's behalf. The scope, timeline, and any associated terms of formal legal proceedings will be communicated to Client in writing as circumstances develop. Pioneer Legal Consulting, LLC is committed to seeing your case through to that point and will not abandon the engagement prior to facilitating that transition.</div>
+    <div class="contract-body"><strong>7. CLIENT GOOD FAITH WARRANTY:</strong> The Client's legal specialist, personal advocate and document coordinator will provide the Client with detailed actions that have been outlined which the Client must complete to ensure a timely and favorable outcome for their case.</div>
+    <div class="contract-body">While services are being provided by Pioneer Legal Consulting, the Client agrees to promptly communicate with Pioneer Legal Consulting and timely perform all tasks directed by Pioneer Legal Consulting.</div>
+    <div class="contract-body">The timeline created and agreed upon is contingent on the client providing requested documentation in the timeliness provided.</div>
+    <div class="contract-body">If such communication, cooperation and/or performance are not timely and/or satisfactorily completed, Pioneer Legal Consulting may, at its option, terminate its affiliation with the Client by providing written notice of such intentions.</div>
+    <div class="contract-body">If Pioneer Legal Consulting terminates its affiliation with the Client, all monies previously paid to Pioneer Legal Consulting shall be retained by Pioneer Legal Consulting as compensation for services rendered.</div>
+    <div class="contract-body">If a client is under a payment arrangement of any kind, failure to meet payment terms without proper communication within 5 days and alternate terms agreed upon, Pioneer Legal Consulting will discontinue work until payments are made current.</div>
+    <div class="contract-body">If a client falls more than 60 days behind on initial payment arrangement, the contract may be cancelled by Pioneer Legal Consulting for non-payment and any payments made will be forfeited.</div>
+    <div class="contract-body">The desired outcomes and goals set for the client and agreed to by Pioneer Legal Consulting, LLC are dependent upon the accuracy of the clients recounting of events leading up to solar purchase and up to the time engaging Pioneer Legal Consulting, LLC for service. Misrepresentations affect the possibility of a positive outcome and discredit all claims made in the eyes of those considering the merits of the claims made.</div>
+    <div class="contract-body">Client agrees to refrain from directly communicating with their lender, solar company, or any related third party regarding the solar financing dispute while services are being provided by Pioneer Legal Consulting, LLC. All communications with such parties should be directed through or coordinated with Pioneer Legal Consulting, LLC. Client understands that unsolicited direct contact with the lender may jeopardize the outcome of their case.</div>
+    <div class="contract-body">Client agrees not to sign any document, agreement, modification, settlement offer, or correspondence sent by the lender, solar company, or any related third party without first conferring with Pioneer Legal Consulting, LLC. Signing such documents without prior consultation may waive important legal rights and could materially harm the Client's ability to obtain a favorable resolution. If the Client receives any such documents, Client shall promptly forward them to Pioneer Legal Consulting, LLC for review before taking any action.</div>
+    <div class="contract-body"><strong>8. 3-DAY RIGHT OF RESCISSION:</strong> The client has 3 days from payment date to request a refund or continue with agreed upon services.</div>
+    <div class="contract-body">IN WITNESS WHEREOF, the parties have executed this Agreement and intend to be bound by the terms contained herein.</div>
+
+    <!-- ===================== SECTION 9 ===================== -->
+    <div class="section-heading">9. Client Obligations and Cooperation</div>
+    <div class="contract-body">Client agrees that the following obligations apply for the full term of this Agreement and any renewal period. These obligations are material to Pioneer Legal Consulting's ability to perform under this Agreement. Failure to comply may, at Pioneer Legal Consulting's discretion, suspend Pioneer Legal Consulting's performance obligations and affect Client's eligibility for any refund under Section 10.</div>
+    <div class="contract-body"><strong>(a)</strong> Client shall timely execute and return all documents requested by Pioneer Legal Consulting as necessary to advance Client's matter.</div>
+    <div class="contract-body"><strong>(b)</strong> Client shall promptly respond to Pioneer Legal Consulting's requests for information, documentation, or clarification within the timeframes specified by Pioneer Legal Consulting.</div>
+    <div class="contract-body"><strong>(c)</strong> While representation is active, Client shall not initiate or engage in direct contact with the subject lender, solar installer, or their agents or attorneys regarding the matter, unless expressly authorized by Pioneer Legal Consulting in writing.</div>
+    <div class="contract-body"><strong>(d)</strong> Client shall notify Pioneer Legal Consulting within five (5) business days of: (i) any direct contact initiated by the subject lender or installer; (ii) any material change in Client's financial status related to the subject account; or (iii) any change in Client's contact or mailing information.</div>
+    <div class="contract-body"><strong>(e)</strong> Client shall not make any public statements, post reviews, or publish social media content related to the subject matter of this Agreement that could compromise Pioneer Legal Consulting's negotiating position or Client's legal standing without prior written consent from Pioneer Legal Consulting.</div>
+
+    <div class="initials-row">
+      <div class="init-text">
+        <strong>Client Initials — Section 9</strong>
+        I have read and agree to the client obligations and cooperation requirements set forth in Section 9 above.
+      </div>
+      <div class="initials-field">
+        <label class="field-label" style="text-align:center;display:block;">Initials<span class="required-star">*</span></label>
+        <input type="text" id="initials_obligations" name="initials_obligations" maxlength="10" placeholder="Initials" required autocomplete="off">
+      </div>
+    </div>
+
+    <!-- ===================== SECTION 10 ===================== -->
+    <div class="section-heading">10. Resolution and Refund Policy</div>
+    <div class="contract-body"><strong>(a) Definition of Resolution.</strong> "Resolution" means a written, documented outcome that permanently modifies, cancels, or reduces Client's financial obligation or contract status with the subject lender or solar installer.</div>
+    <div class="contract-body"><strong>(b) Refund Upon Conclusion Without Resolution.</strong> In the event Pioneer Legal Consulting is unable to obtain a Resolution upon conclusion of the engagement, Pioneer Legal Consulting will return to Client the funds paid under this Agreement, less an administrative fee of $________, provided that Client has fulfilled all obligations under Section 9 of this Agreement throughout the engagement.</div>
+    <div class="contract-body"><strong>(c) Conclusion of Engagement.</strong> The engagement is not concluded, and no refund obligation arises, while the matter remains active or any available process remains pending. All available processes — including negotiation, formal demand, and arbitration — must be fully exhausted before the engagement may be deemed concluded. No refund obligation arises while any such process remains pending or available.</div>
+    <div class="contract-body"><strong>(d) Term and Renewal.</strong> The initial term of this Agreement is two (2) years from the execution date. Provided Pioneer Legal Consulting has begun and continues to perform the agreed services and the matter has not been resolved, this Agreement shall automatically renew in successive twelve (12)-month increments at no additional charge to Client, until Resolution is achieved or all available processes are exhausted. Either party may decline renewal by providing written notice at least thirty (30) days prior to the end of the then-current term, provided that no renewal may be declined by Pioneer Legal Consulting while an active process remains pending.</div>
+
+    <div class="initials-row">
+      <div class="init-text">
+        <strong>Client Initials — Section 10</strong>
+        I have read and understand the Resolution and Refund Policy, including the definition of Resolution, the conditions for refund eligibility, and the term and renewal provisions set forth in Section 10 above.
+      </div>
+      <div class="initials-field">
+        <label class="field-label" style="text-align:center;display:block;">Initials<span class="required-star">*</span></label>
+        <input type="text" id="initials_refund" name="initials_refund" maxlength="10" placeholder="Initials" required autocomplete="off">
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===============================================================
+       PAGE 3 — Client Signatures
+       =============================================================== -->
+  <div class="card">
+    <div class="card-title">Client Signature(s)</div>
+    <div class="card-sub">Sign in the box below. Typed names constitute legal electronic signatures.</div>
+
+    <div class="notice-box">By signing below, each party confirms they have read, understand, and agree to all terms of this Client Services Agreement. Typed names constitute legal electronic signatures.</div>
+
+    <div class="section-heading">Solar Homeowner — Primary Client</div>
+    <div class="sig-pad-wrap">
+      <div class="sig-pad-label">Signature <span class="required-star">*</span></div>
+      <canvas id="canvas1" width="660" height="120"></canvas>
+      <div class="sig-actions"><button type="button" class="sig-clear" onclick="clearSig(1)">✕ Clear</button></div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Print Name<span class="required-star">*</span></label>
+      <input type="text" id="print_client1" name="print_client1" placeholder="Print full legal name" required>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Date Signed</label>
+      <input type="text" id="sig_client1_date" name="sig_client1_date" readonly>
+    </div>
+    <input type="hidden" id="sig_client1" name="sig_client1">
+
+    <div class="section-heading" style="margin-top:28px;">Solar Homeowner — Co-Client <span style="font-weight:400;text-transform:none;letter-spacing:0;">(if applicable)</span></div>
+    <div class="sig-pad-wrap">
+      <div class="sig-pad-label">Co-Client Signature <span style="font-size:11px;color:var(--muted);">(leave blank if not applicable)</span></div>
+      <canvas id="canvas2" width="660" height="120"></canvas>
+      <div class="sig-actions"><button type="button" class="sig-clear" onclick="clearSig(2)">✕ Clear</button></div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Co-Client Print Name</label>
+      <input type="text" id="print_client2" name="print_client2" placeholder="Co-client name (if applicable)">
+    </div>
+    <div class="field-group">
+      <label class="field-label">Co-Client Date Signed</label>
+      <input type="text" id="sig_client2_date" name="sig_client2_date" readonly>
+    </div>
+    <input type="hidden" id="sig_client2" name="sig_client2">
+
+    <div class="section-heading" style="margin-top:28px;">Pioneer Legal Consulting, LLC — Authorized Representative</div>
+    <div class="field-group">
+      <label class="field-label">PLC Representative</label>
+      <input type="text" id="sig_plc_rep" name="sig_plc_rep" placeholder="PLC representative name">
+    </div>
+    <div class="field-group">
+      <label class="field-label">Date</label>
+      <input type="text" id="sig_plc_date" name="sig_plc_date" readonly>
+    </div>
+  </div>
+
+  <!-- ===============================================================
+       PAGE 4 — Authorization and Permission to Communicate
+       =============================================================== -->
+  <div class="card">
+    <div class="card-title">Authorization and Permission to Communicate</div>
+    <div class="card-sub">Please read and sign this authorization, which allows Pioneer Legal Consulting to act as your authorized representative with lenders and solar companies.</div>
+
+    <div class="contract-body">The undersigned Client(s) hereby authorize and direct Pioneer Legal Consulting, LLC ("Pioneer Legal"), and any agents, advocates, or document coordinators designated by Pioneer Legal Consulting, LLC, to act as Client's non-legal representative and authorized agent solely for the purpose of communicating, transmitting documentation, and coordinating advocacy efforts with lenders, solar installers, servicers, finance companies, creditors, and any other third parties involved in or related to Client's residential solar financing transaction (the "Transaction").</div>
+    <div class="contract-body">This Authorization is granted in connection with the Client Service Agreement entered into between Client and Pioneer Legal Consulting, LLC, and is intended to facilitate Pioneer Legal's case management, document preparation, lender correspondence, escalation coordination, and advocacy services on Client's behalf. Pioneer Legal Consulting, LLC operates under the supervision of licensed legal counsel and provides non-legal administrative and advocacy services. This Authorization does not constitute legal representation or a power of attorney.</div>
+    <div class="contract-body">By signing below, Client authorizes and instructs all lenders, solar companies, servicers, finance companies, creditors, and related third parties to:</div>
+    <div class="contract-bullet">Direct all communications, correspondence, notices, settlement offers, modification proposals, and documentation pertaining to Client's residential solar financing transaction to Pioneer Legal Consulting, LLC at the address listed above;</div>
+    <div class="contract-bullet">Discuss, disclose, and convey account information, loan details, balances, payment histories, lien filings, and any other information related to the Transaction with Pioneer Legal Consulting, LLC to the same extent such information would otherwise be disclosed to the Client directly;</div>
+    <div class="contract-bullet">Accept correspondence, dispute notices, demand letters, and documentation submitted by Pioneer Legal Consulting, LLC on Client's behalf as authorized communications from Client;</div>
+    <div class="contract-bullet">Refrain from directly contacting Client regarding the Transaction except as required by applicable law, and instead direct all such communications to Pioneer Legal Consulting, LLC.</div>
+    <div class="notice-box"><strong>NOTICE:</strong> The recipient of an original, photocopy, or electronic copy of this Authorization is specifically instructed to direct all communications relating to Client's residential solar financing transaction to Pioneer Legal Consulting, LLC. This Authorization is effective upon signing and shall remain in effect for the duration of Pioneer Legal Consulting, LLC's engagement with Client, unless revoked in writing by Client.</div>
+    <div class="contract-body">I/We have read, understand, and voluntarily agree to the terms of this Authorization. I/We understand that Pioneer Legal Consulting, LLC is not a law firm or licensed attorney, and that Pioneer Legal Consulting, LLC is acting as my/our non-legal agent and advocate to assist in resolving the disputed solar financing transaction.</div>
+
+    <div class="section-heading">Client Authorization — Primary</div>
+    <div class="row2">
+      <div class="field-group">
+        <label class="field-label">Client Name<span class="required-star">*</span></label>
+        <input type="text" id="auth_client1_name" name="auth_client1_name" placeholder="Full legal name" required>
+      </div>
+      <div class="field-group">
+        <label class="field-label">Last 4 of SS#<span class="required-star">*</span></label>
+        <input type="text" id="auth_client1_ss4" name="auth_client1_ss4" maxlength="4" placeholder="####" required>
+        <div class="ss4-note">Last 4 digits only — used for identity verification</div>
+      </div>
+    </div>
+    <div class="sig-pad-wrap">
+      <div class="sig-pad-label">Authorization Signature <span class="required-star">*</span></div>
+      <canvas id="canvas3" width="660" height="120"></canvas>
+      <div class="sig-actions"><button type="button" class="sig-clear" onclick="clearSig(3)">✕ Clear</button></div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Date</label>
+      <input type="text" id="auth_sig_client1_date" name="auth_sig_client1_date" readonly>
+    </div>
+    <input type="hidden" id="auth_sig_client1" name="auth_sig_client1">
+
+    <div class="section-heading" style="margin-top:24px;">Co-Client Authorization <span style="font-weight:400;text-transform:none;letter-spacing:0;">(if applicable)</span></div>
+    <div class="row2">
+      <div class="field-group">
+        <label class="field-label">Co-Client Name</label>
+        <input type="text" id="auth_client2_name" name="auth_client2_name" placeholder="Co-client name (if applicable)">
+      </div>
+      <div class="field-group">
+        <label class="field-label">Last 4 of SS#</label>
+        <input type="text" id="auth_client2_ss4" name="auth_client2_ss4" maxlength="4" placeholder="####">
+      </div>
+    </div>
+    <div class="sig-pad-wrap">
+      <div class="sig-pad-label">Co-Client Authorization Signature <span style="font-size:11px;color:var(--muted);">(leave blank if not applicable)</span></div>
+      <canvas id="canvas4" width="660" height="120"></canvas>
+      <div class="sig-actions"><button type="button" class="sig-clear" onclick="clearSig(4)">✕ Clear</button></div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Date</label>
+      <input type="text" id="auth_sig_client2_date" name="auth_sig_client2_date" readonly>
+    </div>
+    <input type="hidden" id="auth_sig_client2" name="auth_sig_client2">
+
+    <div class="section-heading" style="margin-top:24px;">Pioneer Legal Consulting, LLC — Authorized Representative</div>
+    <div class="sig-pad-wrap">
+      <div class="sig-pad-label">PLC Authorized Signature</div>
+      <canvas id="canvas5" width="660" height="120"></canvas>
+      <div class="sig-actions"><button type="button" class="sig-clear" onclick="clearSig(5)">✕ Clear</button></div>
+    </div>
+    <div class="field-group">
+      <label class="field-label">Date</label>
+      <input type="text" id="auth_sig_plc_date" name="auth_sig_plc_date" readonly>
+    </div>
+    <input type="hidden" id="auth_sig_plc" name="auth_sig_plc">
+  </div>
+
+  <!-- Submit -->
+  <div class="card" style="padding:24px 32px;">
+    <div class="contract-body" style="margin-bottom:16px;font-size:12.5px;">By clicking Submit, I confirm I have read the entire agreement, initialed all required sections, and I agree to be bound by all terms. My typed name and electronic signature constitute a valid legal signature.</div>
+    <button type="button" class="btn-submit" id="submitBtn" onclick="submitForm()">Submit Signed Agreement</button>
+    <div class="error-msg" id="submitError">Please complete all required fields and signatures before submitting.</div>
+    <div id="submitSpinner" class="spinner" style="margin-top:16px;"></div>
+  </div>
+
+</div><!-- /formWrap -->
+
+<!-- Success screen -->
+<div class="page-wrap" id="successWrap" style="display:none;">
+  <div class="success-card" id="successCard" style="display:block;">
+    <div class="success-icon">✅</div>
+    <div class="success-title">Agreement Received</div>
+    <div class="success-sub">Thank you. Your signed Client Services Agreement has been submitted to Pioneer Legal Consulting, LLC.<br><br>A copy has been emailed to you for your records. If you have questions, please call <strong>313-604-8601</strong>.</div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// APPS SCRIPT BACKEND URL  — update after every redeploy
+// ============================================================
+var SCRIPT_URL = 'https://script.google.com/macros/s/REPLACE_WITH_DEPLOYED_SCRIPT_URL/exec';
+
+// ============================================================
+// SIGNATURE PADS  (5 canvases)
+// ============================================================
+var pads = {};
+
+function initPad(n) {
+  var canvas = document.getElementById('canvas' + n);
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  ctx.strokeStyle = '#1a2d4e';
+  ctx.lineWidth = 2;
+  ctx.lineCap = 'round';
+  ctx.lineJoin = 'round';
+  var drawing = false, last = null;
+
+  function pt(e) {
+    var r = canvas.getBoundingClientRect();
+    var scaleX = canvas.width / r.width;
+    var scaleY = canvas.height / r.height;
+    var src = e.touches ? e.touches[0] : e;
+    return { x: (src.clientX - r.left) * scaleX, y: (src.clientY - r.top) * scaleY };
+  }
+
+  canvas.addEventListener('mousedown',  function(e){ drawing=true; last=pt(e); });
+  canvas.addEventListener('mousemove',  function(e){ if(!drawing) return; var p=pt(e); ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(p.x,p.y); ctx.stroke(); last=p; });
+  canvas.addEventListener('mouseup',    function(){ drawing=false; last=null; });
+  canvas.addEventListener('mouseleave', function(){ drawing=false; });
+  canvas.addEventListener('touchstart', function(e){ e.preventDefault(); drawing=true; last=pt(e); }, {passive:false});
+  canvas.addEventListener('touchmove',  function(e){ e.preventDefault(); if(!drawing) return; var p=pt(e); ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(p.x,p.y); ctx.stroke(); last=p; }, {passive:false});
+  canvas.addEventListener('touchend',   function(){ drawing=false; last=null; });
+  pads[n] = canvas;
+}
+
+function clearSig(n) {
+  var c = pads[n];
+  if (!c) return;
+  c.getContext('2d').clearRect(0, 0, c.width, c.height);
+}
+
+function isEmpty(n) {
+  var c = pads[n];
+  if (!c) return true;
+  var d = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+  for (var i = 3; i < d.length; i += 4) { if (d[i] > 0) return false; }
+  return true;
+}
+
+function getSig(n) {
+  var c = pads[n];
+  if (!c || isEmpty(n)) return '';
+  return c.toDataURL('image/png');
+}
+
+// ============================================================
+// PREFILL from URL params
+// ============================================================
+function prefill() {
+  var p = new URLSearchParams(window.location.search);
+  var fields = ['client_names','home_address','city','state','zip','service_fee',
+                'rep_name','client_email','client_phone','pin','lang'];
+  fields.forEach(function(k) {
+    var v = p.get(k);
+    if (v) {
+      var el = document.getElementById(k);
+      if (el) el.value = v;
+    }
+  });
+  // Mirror client name into auth fields if empty
+  var cn = p.get('client_names');
+  if (cn) {
+    var a1 = document.getElementById('auth_client1_name');
+    if (a1 && !a1.value) a1.value = cn;
+    var p1 = document.getElementById('print_client1');
+    if (p1 && !p1.value) p1.value = cn;
+  }
+  // Rep name into PLC sig field
+  var rn = p.get('rep_name');
+  if (rn) {
+    var ps = document.getElementById('sig_plc_rep');
+    if (ps && !ps.value) ps.value = rn;
+  }
+  // Set today's date on all date fields
+  var today = new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+  ['sig_client1_date','sig_client2_date','sig_plc_date',
+   'auth_sig_client1_date','auth_sig_client2_date','auth_sig_plc_date'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.value = today;
+  });
+}
+
+// ============================================================
+// SUBMIT
+// ============================================================
+function submitForm() {
+  var required = ['client_names','home_address','city','state','zip','service_fee',
+                  'print_client1','auth_client1_name','auth_client1_ss4',
+                  'initials_obligations','initials_refund'];
+  var ok = true;
+  required.forEach(function(id) {
+    var el = document.getElementById(id);
+    if (!el || !el.value.trim()) { if(el) el.classList.add('error'); ok = false; }
+    else { if(el) el.classList.remove('error'); }
+  });
+
+  // Primary signature required
+  if (isEmpty(1)) {
+    document.getElementById('canvas1').style.border = '2px solid #c0392b';
+    ok = false;
+  } else {
+    document.getElementById('canvas1').style.border = '';
+  }
+  // Auth signature required
+  if (isEmpty(3)) {
+    document.getElementById('canvas3').style.border = '2px solid #c0392b';
+    ok = false;
+  } else {
+    document.getElementById('canvas3').style.border = '';
+  }
+
+  if (!ok) {
+    document.getElementById('submitError').style.display = 'block';
+    window.scrollTo({top:0, behavior:'smooth'});
+    return;
+  }
+  document.getElementById('submitError').style.display = 'none';
+
+  // Collect data
+  var data = {};
+  ['client_names','home_address','city','state','zip','service_fee','rep_name',
+   'client_email','client_phone','pin','lang','form_type',
+   'print_client1','sig_client1_date','print_client2','sig_client2_date','sig_plc_rep','sig_plc_date',
+   'auth_client1_name','auth_client1_ss4','auth_sig_client1_date',
+   'auth_client2_name','auth_client2_ss4','auth_sig_client2_date','auth_sig_plc_date',
+   'initials_obligations','initials_refund'
+  ].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) data[id] = el.value;
+  });
+
+  // Signatures as data URLs
+  data.sig_client1       = getSig(1);
+  data.sig_client2       = getSig(2);
+  data.auth_sig_client1  = getSig(3);
+  data.auth_sig_client2  = getSig(4);
+  data.auth_sig_plc      = getSig(5);
+
+  document.getElementById('submitBtn').disabled = true;
+  document.getElementById('submitSpinner').style.display = 'block';
+
+  // JSONP submission (Safari-safe)
+  var cbName = '_plcCb' + Date.now();
+  window[cbName] = function(resp) {
+    document.getElementById('submitSpinner').style.display = 'none';
+    if (resp && resp.status === 'ok') {
+      document.getElementById('formWrap').style.display = 'none';
+      document.getElementById('successWrap').style.display = 'block';
+      window.scrollTo({top:0, behavior:'smooth'});
+    } else {
+      document.getElementById('submitBtn').disabled = false;
+      alert('Submission error. Please try again or call 313-604-8601 for assistance.');
+    }
+    delete window[cbName];
+  };
+
+  var params = Object.keys(data).map(function(k) {
+    return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+  }).join('&');
+  params += '&callback=' + cbName + '&action=submit';
+
+  var s = document.createElement('script');
+  s.src = SCRIPT_URL + '?' + params;
+  s.onerror = function() {
+    document.getElementById('submitSpinner').style.display = 'none';
+    document.getElementById('submitBtn').disabled = false;
+    alert('Network error. Please try again or call 313-604-8601.');
+  };
+  document.head.appendChild(s);
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', function() {
+  [1,2,3,4,5].forEach(initPad);
+  prefill();
+});
+</script>
+</body>
+</html>
